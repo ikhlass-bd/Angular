@@ -9,22 +9,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-
 public class ConsulConfigRestController {
-  @Autowired
-  private MyConsulConfig myConsulConfig;
-//    @Autowired
-    //private MyVaultConfig myVaultConfig;
-//    @Value("${token.accessTokenTimeout}")
-//    private long accessTokenTimeout;
-//    @Value("${token.refreshTokenTimeout}")
-//    private long refreshTokenTimeout;
+    @Autowired
+    private MyConsulConfig myConsulConfig;
+    @Autowired
+    private MyVaultConfig myVaultConfig;
+    //@Value("${token.accessTokenTimeout}")
+    //private long accessTokenTimeout;
+    //@Value("${token.refreshTokenTimeout}")
+    //private long refreshTokenTimeout;
     @GetMapping("/myConfig")
     public Map<String,Object> myConfig(){
-        return Map.of("consulConfig",myConsulConfig);
-
-
-       // return Map.of("accessTokenTimeout",accessTokenTimeout, "refreshTokenTimeout", refreshTokenTimeout);
-
+        return Map.of("consulConfig",myConsulConfig, "vaultConfig",myVaultConfig);
     }
 }
